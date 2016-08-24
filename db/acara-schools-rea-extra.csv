@@ -1,0 +1,14 @@
+calendar_years,acara_sml_id,acara_sml_school_name,suburb,address,post_code,state,school_sector_code_desc,school_type_code_desc,year_range,total_enrollments,fte_total_enrollments,total_female_enrollments,total_male_enrollments,campus_type_code,school_url
+2013,1000001,Overnewton Anglican Community College Taylors Lakes Campus,TAYLORS LAKES,39-57 Robertsons Rd,3038,VIC,I,Combined," U, Prep-9",2222,2222,1019,1203,H,http://www.overnewton.vic.edu.au
+2013,1000002,Bayside P-12 College Altona North Campus,ALTONA NORTH,1 McArthurs Rd,3025,VIC,G,Combined, Prep-9,1016,1015.4,402,614,H,http://www.bayside.vic.edu.au
+2013,1000003,Bayside P-12 College Paisley Campus,NEWPORT,Blenheim Rd,3025,VIC,G,Combined, Prep-12,1016,1015.4,402,614,H,http://www.bayside.vic.edu.au
+2013,1000004,Wesley College Elsternwick Campus,ELSTERNWICK,5 Gladstone Parade,3185,VIC,I,Combined," U, Prep-9",2927,2926.5,1233,1694,H,http://www.wesleycollege.net
+2013,1000005,Caulfield Grammar School- Wheelers Hill Campus,WHEELERS HILL,74-82 Jells Rd,3150,VIC,I,Combined,Prep-12,3070,3069.4,1246,1824,H,http://www.caulfieldgs.vic.edu.au
+2013,1000006,Sirius College - Keysborough Campus,KEYSBOROUGH,139 Chapel Rd,3173,VIC,I,Combined,Prep-12,179,179,106,73,SG,http://www.isikcollege.vic.edu.au
+2016,1000007,Grace Lutheran College - Caboolture Campus,CABOOLTURE,129 Toohey Street,4510,QLD,I,Combined," U, 7-12",1769,1769,919,850,H,http://www.glc.qld.edu.au
+2016,1000008,St Georges Anglican Grammar School,PERTH,50 William St,4510,WA,I,Combined,12-Jul,235,235,130,105,H,http://www.murdochcollege.wa.edu.au/
+2016,1000009,Woodleigh School Junior Campus,FRANKSTON SOUTH,3 Minimbah Court,3199,VIC,I,Primary," U, Prep-6",NULL,NULL,NULL,NULL,H,http://woodleigh.vic.edu.au/student/junior-campus
+2016,1000010,King's Christian College Pimpama Campus,PIMPAMA,198 Pimpama Jacobs Well Rd,4209,QLD,I,Combined," U, Prep-3",NULL,NULL,NULL,NULL,H,http://www.kingscollege.qld.edu.au/about-kings/pimpama-campus
+2016,1000011,Living Waters Lutheran College Halls Head Campus,HALLS HEAD,28 Karon Vista,6210,WA,I,Primary,Prep-6,NULL,NULL,NULL,NULL,SG,http://www.hallsheadlwlc.wa.edu.au/
+2016,1000012,Trinity Anglican Primary School Campus,KEWARRA BEACH,Poolwood Rd,4879,QLD,I,Primary,"U, Prep-12",1038,1038,487,551,H,http://tas.qld.edu.au
+2016,1000013,Marie Bashir Public School,STRATHFIELD,159 Albert Rd,2135,NSW,G,Primary,K-6,NULL,NULL,NULL,NULL,G,http://mariebashirpublicschool.com.au
