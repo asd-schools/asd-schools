@@ -1,5 +1,6 @@
-BrowserGeocode = () => {
-  navigator.geolocation.getCurrentPosition((geocode) =>
-    window.location.pathname = `/search/?lat=${geocode.coords.latitude}&lng=${geocode.coords.longitude}`
-  );
+
+function BrowserGeocode() {
+  navigator.geolocation.getCurrentPosition(function gotGeocode(geocode) {
+    window.location = `/search/?lat=${geocode.coords.latitude}&lng=${geocode.coords.longitude}`
+  });
 }
