@@ -7,5 +7,10 @@ class School < ApplicationRecord
       location <-> #{point}
     SQL
   }
+end
 
+class ActiveRecord::Point
+  def to_s
+    "(#{Float(x)},#{Float(y)})"
+  end
 end
