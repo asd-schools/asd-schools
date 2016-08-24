@@ -15,12 +15,13 @@ gem 'coffee-rails', '~> 4.2'
 # gem 'therubyracer', platforms: :ruby
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-
+gem 'picky'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'activeadmin', github: 'activeadmin'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'twitter-typeahead-rails'
 gem 'sass-rails', '>= 3.2'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
