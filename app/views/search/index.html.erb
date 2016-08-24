@@ -1,19 +1,21 @@
 <% @schools.map do |school|  %>
   <div class="container">
     <div class="row">
-      <div class="col-xs-offset-3 col-xs-6 container-school">
-        <div class="col-xs-7 school-details">
-          <h3><%= school.name %></h3>
-          <%= "#{school.address.titleize}, #{school.suburb.titleize}, #{school.post_code}, #{school.state}" %>
-          <br />
-          <%= link_to "#{school.url}", school.url %>
-          <br />
-        </div>
-        <div class="col-xs-5 school-feedback">
-          <h3>Feedback</h3>
-          <p>5 thumbs up</p>
-          <p>3 thumbs up</p>
-          <p>2 unrated</p>
+      <div class="col-md-offset-3 col-md-6 container-school">
+        <div class="row">
+          <div class="col-sm-7 school-details">
+            <h3><%= school.name %></h3>
+            <%= "#{school.address.titleize}, #{school.suburb.titleize}, #{school.post_code}, #{school.state}" %>
+            <br />
+            <%= link_to "#{school.url}", school.url %>
+            <br />
+          </div>
+          <div class="col-sm-5 school-feedback">
+            <h3>Feedback</h3>
+            <p>5 thumbs up</p>
+            <p>3 thumbs up</p>
+            <p>2 unrated</p>
+          </div>
         </div>
       </div>
     </div>
