@@ -4,7 +4,7 @@
       <div class="col-xs-offset-3 col-xs-6 container-school">
         <div class="col-xs-7 school-details">
           <h3><%= school.name %></h3>
-          <%= "#{school.address}, #{school.suburb}, #{school.post_code}, #{school.state}" %>
+          <%= "#{school.address.titleize}, #{school.suburb.titleize}, #{school.post_code}, #{school.state}" %>
           <br />
           <%= link_to "#{school.url}", school.url %>
           <br />
