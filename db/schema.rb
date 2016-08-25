@@ -30,14 +30,15 @@ ActiveRecord::Schema.define(version: 20160824050520) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer  "school_id",    null: false
-    t.string   "review_type",  null: false
+    t.integer  "school_id",             null: false
+    t.string   "review_type",           null: false
+    t.string   "child_characteristics",              array: true
     t.integer  "score"
-    t.string   "whatisgood",   null: false
-    t.string   "whatisbad",    null: false
-    t.string   "othercomment", null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "pros",                  null: false
+    t.string   "cons",                  null: false
+    t.string   "comments",              null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "schools", force: :cascade do |t|

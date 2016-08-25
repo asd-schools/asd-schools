@@ -4,10 +4,13 @@ class CreateReviews < ActiveRecord::Migration[5.0]
       t.integer :school_id, null: false
       # review_type is to represent the different types of reviews, eg: "My kid went here", "I heard about it..", etc
       t.string :review_type, null: false
+      # Characteristics of my child, what I am looking for in a school to support.
+      t.string :child_characteristics, array: true
+      # net promoter type score 0-10.  "Would you recommend this school to someone"
       t.integer :score
-      t.string  :whatisgood, null: false
-      t.string  :whatisbad, null: false
-      t.string :othercomment, null: false
+      t.string  :pros, null: false
+      t.string  :cons, null: false
+      t.string :comments, null: false
       t.timestamps
     end
   end
