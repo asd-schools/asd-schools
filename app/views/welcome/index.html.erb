@@ -1,25 +1,9 @@
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-offset-4 col-md-4">
-      <div class="form-group autocomplete">
-        <label
-          for="suburbAutocomplete"
-        >
-          Where are you?
-        </label>
-        <input
-          type="search"
-          id="suburbAutocomplete"
-          class="form-control"
-        />
-      </div>
-
-    </div>
-  </div>
+<header>
+  <%= link_to :about %>
+  <%= button_to :add_feedback %>
+</header>
+<div class="logo">
+  <img src="<%= asset_url "logo.png" %>" />
 </div>
 
-<script>
-  SuburbAutocomplete("#suburbAutocomplete", ConsumerSuggestAutocomplete)
-  BrowserGeocode()
-</script>
+<%= render partial: "searches/form", locals: {search: @search} %>

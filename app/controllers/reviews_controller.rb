@@ -6,6 +6,7 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
+    @review.published = true
     @review.school = school
     if @review.save
       redirect_to school_url(school)
