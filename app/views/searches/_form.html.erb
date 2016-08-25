@@ -11,24 +11,24 @@
 
             <label
               for="suburbAutocomplete"
+              class="sr-only"
             >
               Where are you?
             </label>
             <%= f.search_field :suburb,
               id: "suburbAutocomplete",
-              placeholder: "Search by suburb or postcode",
+              placeholder: " Search by suburb or postcode",
               class: "form-control"
             %>
-            <div id="autocompleteResults"/>
-            <%= f.action :submit, label: "Search" %>
-          <% end %>
+            <div id="autocompleteResults"></div>
 
-          <%= f.inputs do %>
-
-          <%= f.input :school_type, as: :select, collection: Search::SchoolTypes, include_blank: false %>
-          <%= f.input :autism_classification, as: :select, collection: Search::AutismClassifications, include_blank: false %>
-          <%= f.input :sector, as: :select, collection: Search::Sectors, include_blank: false %>
+            <div class="select-row">
+              <%= f.input :school_type, as: :select, collection: Search::SchoolTypes, include_blank: false %>
+              <%= f.input :autism_classification, as: :select, collection: Search::AutismClassifications, include_blank: false %>
+              <%= f.input :sector, as: :select, collection: Search::Sectors, include_blank: false %>
+            </div>
           <% end %>
+          <%= f.action :submit, label: "Search" %>
 
         <% end %>
       </div>

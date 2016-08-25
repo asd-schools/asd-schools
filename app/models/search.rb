@@ -2,9 +2,9 @@ class Search
   include ActiveModel::Model
   include ActiveModel::Validations
 
-  Sectors = ['All', 'Government', 'Catholic', 'Independent']
-  AutismClassifications = ['All']
-  SchoolTypes = ['All', 'Primary', 'Secondary']
+  Sectors = ['Sector', 'Government', 'Catholic', 'Independent']
+  AutismClassifications = ['Autism Classification']
+  SchoolTypes = ['Type', 'Primary', 'Secondary']
 
   attr_accessor(
     :lat,
@@ -21,10 +21,12 @@ class Search
   end
 
   def atlas_id
-    nil
+    @atlas_id
   end
 
   def atlas_id=(value)
+    return if value.blank?
+    @atlas_id = value
     p = Atlas.all[value] or raise ActiveRecord::RecordNotFound.new("atlas_id not found")
     self.lat = p.y
     self.lng = p.x

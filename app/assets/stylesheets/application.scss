@@ -13,11 +13,34 @@
  */
 
  // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
- @import "bootstrap-sprockets";
- @import "bootstrap";
- @import "search";
- @import "schools";
- @import "review";
+ // @import "bootstrap-sprockets";
+ // @import "bootstrap";
+$brand-color: rgb(250, 150, 46);
+
+@mixin sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+@import "base";
+@import "search";
+@import "schools";
+@import "review";
+@import "welcome";
+
+body {
+  background-color: $brand-color;
+}
+
+.sr-only {
+  @include sr-only;
+}
 
 // Formtastic generates lots of `.label`s and
 // bootstrap turns their text white
