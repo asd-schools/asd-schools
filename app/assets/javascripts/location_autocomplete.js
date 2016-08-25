@@ -36,7 +36,7 @@ function SuburbAutocomplete(
       f.find('[name="search[lng]"]').val(record.point.y)
     }
     ul.empty();
-    $(input).val(record.name || record.display.text)
+    $(input).val(" " + (record.name || record.display.text))
   }
 
   $(input).on('input', function onSuburbChange(inputEvent) {
