@@ -17,3 +17,11 @@
  @import "bootstrap";
  @import "search";
  @import "schools";
+ @import "review";
+
+// Formtastic generates lots of `.label`s and
+// bootstrap turns their text white
+.label {
+  color: #222;
+}
+

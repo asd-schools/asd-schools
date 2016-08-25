@@ -1,0 +1,58 @@
+<h1>Review <%= @school.name %></h1>
+
+<%= semantic_form_for [@school, @review] do |f| %>
+  <%= f.inputs do %>
+    <%=
+      f.input :review_type,
+        as: :select,
+        required: true,
+        input_html: {class: "form-control"},
+        collection: Review::TYPES,
+        label: "What is your involvement with the school"
+    %>
+
+    <%=
+      f.input :score,
+        as: :radio,
+        collection: 0..10,
+        input_html: {class: "inline-form"},
+        label: "How likely would you be to recommend this school to a friend?"
+    %>
+
+
+    <%=
+      f.input :child_characteristics,
+        as: :check_boxes,
+        collection: [
+          'Sensory',
+          'Suffers meltdowns',
+          'Academically gifted',
+        ],
+        label: "Do any of the following describe your child?"
+    %>
+
+    <%=
+      f.input :pros,
+        as: :text,
+        label: "What did this school do well?"
+    %>
+    <%=
+      f.input :cons,
+        as: :text,
+        label: "What did this school do poorly?"
+    %>
+
+    <%=
+      f.input :comments,
+        as: :text,
+        label: "Any other comments?"
+    %>
+
+
+  <% end %>
+
+
+  <%= f.actions do %>
+    <%= f.action :submit, label: "Save my review" %>
+  <% end %>
+<% end %>

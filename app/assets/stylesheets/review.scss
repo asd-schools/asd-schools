@@ -1,0 +1,14 @@
+.formtastic {
+  li.input {
+    list-style-type: none;
+  }
+  li.choice {
+    list-style-type: none;
+    display: inline-block;
+    > input {
+      float:left;
+      clear: right;
+      display: block;
+    }
+  }
+}

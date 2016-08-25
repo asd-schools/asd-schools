@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   resources :search
   resources :suburbs
+  resources :schools do
+    resources :reviews
+  end
 end

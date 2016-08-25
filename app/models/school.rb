@@ -7,6 +7,17 @@ class School < ApplicationRecord
       location <-> #{point}
     SQL
   }
+
+  has_many :reviews
+
+  def display_address
+    [
+      address.titleize,
+      suburb.titleize,
+      post_code,
+      state,
+    ].join(", ")
+  end
 end
 
 class ActiveRecord::Point

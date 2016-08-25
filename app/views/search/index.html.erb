@@ -2,10 +2,15 @@
   <div class="container">
     <div class="row">
       <div class="col-md-offset-3 col-md-6 container-school">
-        <div class="row">
-          <div class="col-sm-7 school-details">
+        <a
+          class="row"
+          href="<%= school_url school %>"
+        >
+          <div
+            class="col-sm-7 school-details"
+          >
             <h3><%= school.name %></h3>
-            <%= "#{school.address.titleize}, #{school.suburb.titleize}, #{school.post_code}, #{school.state}" %>
+            <%= school.display_address %>
             <br />
             <%= link_to "#{school.url}", school.url %>
             <br />
@@ -16,7 +21,7 @@
             <p>3 thumbs up</p>
             <p>2 unrated</p>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </div>
