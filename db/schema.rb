@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20160825015559) do
     t.point   "location",                                     null: false
     t.string  "geo_supplier",                                 null: false
     t.string  "autism_characterstics",           default: [], null: false, array: true
+    t.string  "sector",                                       null: false
   end
 
   create_table "spatial_ref_sys", primary_key: "srid", id: :integer, force: :cascade do |t|
