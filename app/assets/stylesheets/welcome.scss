@@ -1,0 +1,38 @@
+
+header {
+  background-color: $brand-color;
+
+  .appbar {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+    padding: 1em;
+
+    a {
+      display: inline-block;
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
+      padding-left: 1em;
+      padding-right: 1em;
+
+      color: black;
+      text-decoration: underline;
+    }
+
+    a:last-child {
+      background-color: white;
+      font-weight: bold;
+    }
+  }
+
+  .logo {
+    max-width: 400px;
+    margin: auto;
+    > img {
+      width: 100%;
+    }
+    margin-bottom: 2em;
+  }
+
+}
