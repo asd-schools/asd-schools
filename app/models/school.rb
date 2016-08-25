@@ -1,8 +1,8 @@
 class School < ApplicationRecord
   attribute :location, :point
 
-  scope :near, lambda { |lat, lng|
-    point = "point '(#{connection.quote(Float(lng))},#{Float(lat)})'"
+  scope :near, lambda { |point|
+    point = "point '#{point}'"
     order <<-SQL
       location <-> #{point}
     SQL

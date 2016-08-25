@@ -3,7 +3,9 @@ class ApplicationController < ActionController::Base
 
   def require_basic_auth
     request_http_basic_authentication unless authenticate_with_http_basic do |u, p|
-      u == "admin" && p == ENV['ADMIN_PASSWORD']
+      pass = ENV['ADMIN_PASSWORD']
+      pass = 'admin' if pass.blank?
+      u == "admin" && p == pass
     end
   end
 end

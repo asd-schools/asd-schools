@@ -15,17 +15,5 @@
  // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
  @import "bootstrap-sprockets";
  @import "bootstrap";
-
- .container-school {
-   background-color: rgb(216, 216, 216);
-   margin-top: 10px;
-   margin-bottom: 10px;
-   .school-feedback {
-     text-align: right;
-   }
-
-   .school-details {
-     text-overflow: ellipsis;
-     overflow: hidden;
-   }
-}
+ @import "search";
+ @import "schools";

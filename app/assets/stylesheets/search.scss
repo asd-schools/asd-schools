@@ -1,3 +1,21 @@
-// Place all the styles related to the search controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.autocomplete {
+  label {
+    text-align: center;
+    width: 100%;
+    margin-top: 1.5em;
+    font-size: 1.5em;
+  }
+  ul {
+    list-style-type: none;
+    display: inline-block;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+    li {
+      width: 100%;
+      margin-top: 1.5em;
+      font-size: 1.5em;
+    }
+  }
+}

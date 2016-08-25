@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ATLAS_TGZ=db/atlas_thin.tgz
+ATLAS_UNPACKED=db/atlas_thin/
+rm -rf $ATLAS_TGZ $ATLAS_UNPACKED
+mkdir $ATLAS_UNPACKED
+
+wget "http://atlas-exports.locations.realestate.com.au/atlas_thin.tgz" -O $ATLAS_TGZ
+tar -xvzf $ATLAS_TGZ -C $ATLAS_UNPACKED
+
+rm $ATLAS_TGZ
+
+find \
+  db/atlas_thin/bounded_areas -iname '*.json' \
+  | xargs -n 1 jq '{(.id): ._embedded."atlas:extent".center}' \
+  | jq -s add \
+  > db/atlas_centres.json
+
+rm -rf $ATLAS_UNPACKED
