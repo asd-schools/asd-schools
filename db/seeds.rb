@@ -9,6 +9,7 @@ unless School.any?
       address: row[4] || "",
       post_code: row[5],
       state: row[6],
+      sector: row[7],
       school_type: row[8],
       year_range: row[9] || "",
       total_enrollments: row[10] || 0,
