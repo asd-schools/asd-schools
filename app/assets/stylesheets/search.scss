@@ -1,8 +1,52 @@
+.search-result {
+  max-width: 800px;
+  margin: auto;
+  background-color: white;
+  box-shadow: 2px 2px 1px #888888;
+  margin-top: 2em;
+  margin-bottom: 2em;
+
+  .container {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+      line-height: 2em;
+
+    .school-link {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      text-decoration: none;
+      .name {
+        font-size: 2em;
+        display: inline-block;
+      }
+      .reviews {
+        display: inline-block;
+        align-self: flex-end;
+        text-decoration: underline;
+      }
+    }
+
+    .address {
+      line-height: 1em;
+      .street {
+         white-space: pre-line;
+      }
+    }
+    .total_enrollments {
+    }
+  }
+}
+
+.search-form-container {
+  background-color: $brand-color;
+  width: 100%;
+}
 
 #search-form {
   max-width: 800px;
   margin: auto;
-  margin-top: 2em;
 
   label {
     @include sr-only;

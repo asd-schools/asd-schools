@@ -4,7 +4,7 @@ class Search
 
   Sectors = ['Sector', 'Government', 'Catholic', 'Independent']
   AutismClassifications = ['Autism Classification']
-  SchoolTypes = ['Type', 'Primary', 'Secondary']
+  SchoolTypes = ['Type', 'Primary', 'Secondary', 'Special', 'Combined']
 
   attr_accessor(
     :lat,
@@ -17,7 +17,15 @@ class Search
   )
 
   def results
-    School.near(point).limit(10).offset(page.to_i * 10)
+    filter = School
+    if school_type != SchoolTypes.first
+      filter = filter.where(school_type: school_type)
+    end
+    if sector != Sectors.first
+      # S/G/I are the letters used in the DB to indicate school sector
+      filter = filter.where(sector: sector[0])
+    end
+    filter.near(point).limit(10).offset(page.to_i * 10)
   end
 
   def atlas_id

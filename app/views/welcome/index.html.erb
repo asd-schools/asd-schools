@@ -1,13 +1,2 @@
-<header>
-  <div class="appbar">
-    <%= link_to "About", "/about" %>
-    <%= link_to "Add Feedback", "/review" %>
-  </div>
-  <div class="logo">
-    <img src="<%= asset_url "logo.png" %>" />
-  </div>
-</header>
-
-<div class="search-form">
-  <%= render partial: "searches/form", locals: {search: @search} %>
-</div>
+<%= render partial: "layouts/header" %>
+<%= render partial: "searches/form", locals: {search: @search} %>

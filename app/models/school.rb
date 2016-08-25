@@ -10,6 +10,13 @@ class School < ApplicationRecord
 
   has_many :reviews
 
+  def display_sector
+    {
+      "G" => "Government school",
+      "C" => "Catholic school",
+      "I" => "Independant school"
+    }[sector]
+  end
   def display_address
     [
       address.titleize,

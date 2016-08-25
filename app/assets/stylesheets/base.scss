@@ -7,7 +7,10 @@ html, body {
   height: 100%;
   font-family: Trebuchet MS, sans-serif;
 }
-
+a {
+  color: black;
+  text-decoration: underline;
+}
 input[type="search"] {
   -webkit-appearance:none;
 }

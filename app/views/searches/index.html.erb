@@ -1,30 +1,6 @@
+<%= render partial: "layouts/header" %>
 <%= render partial: "form", locals: {search: @search} %>
 
 <% @schools.map do |school|  %>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-offset-3 col-md-6 container-school">
-        <a
-          class="row"
-          href="<%= school_url school %>"
-        >
-          <div
-            class="col-sm-7 school-details"
-          >
-            <h3><%= school.name %></h3>
-            <%= school.display_address %>
-            <br />
-            <%= link_to "#{school.url}", school.url %>
-            <br />
-          </div>
-          <div class="col-sm-5 school-feedback">
-            <h3>Feedback</h3>
-            <p>5 thumbs up</p>
-            <p>3 thumbs up</p>
-            <p>2 unrated</p>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
+<%= render partial: "result", locals: {school: school} %>
 <% end %>
