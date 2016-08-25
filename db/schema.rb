@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160824050520) do
+ActiveRecord::Schema.define(version: 20160825015559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,20 +44,21 @@ ActiveRecord::Schema.define(version: 20160824050520) do
   end
 
   create_table "schools", force: :cascade do |t|
-    t.string  "name",                            null: false
-    t.string  "suburb",                          null: false
-    t.string  "address",                         null: false
-    t.string  "post_code",                       null: false
-    t.string  "state",                           null: false
-    t.string  "school_type",                     null: false
-    t.string  "year_range",                      null: false
-    t.integer "total_enrollments",               null: false
-    t.integer "fulltime_equivalent_enrollments", null: false
-    t.integer "female_enrollments",              null: false
-    t.integer "male_enrollments",                null: false
-    t.string  "url",                             null: false
-    t.point   "location",                        null: false
-    t.string  "geo_supplier",                    null: false
+    t.string  "name",                                         null: false
+    t.string  "suburb",                                       null: false
+    t.string  "address",                                      null: false
+    t.string  "post_code",                                    null: false
+    t.string  "state",                                        null: false
+    t.string  "school_type",                                  null: false
+    t.string  "year_range",                                   null: false
+    t.integer "total_enrollments",                            null: false
+    t.integer "fulltime_equivalent_enrollments",              null: false
+    t.integer "female_enrollments",                           null: false
+    t.integer "male_enrollments",                             null: false
+    t.string  "url",                                          null: false
+    t.point   "location",                                     null: false
+    t.string  "geo_supplier",                                 null: false
+    t.string  "autism_characterstics",           default: [], null: false, array: true
   end
 
   create_table "spatial_ref_sys", primary_key: "srid", id: :integer, force: :cascade do |t|
