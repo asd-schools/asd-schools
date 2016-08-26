@@ -15,6 +15,10 @@ ActiveAdmin.register School do
     :year_range,
     :autism_characteristics
 
+  preserve_default_filters!
+  remove_filter :reviews
+  remove_filter :published_reviews
+
   form do |f|
     f.semantic_errors
     f.inputs do

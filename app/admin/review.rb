@@ -1,6 +1,8 @@
 ActiveAdmin.register Review do
   permit_params :published, :comments
 
+  preserve_default_filters!
+  remove_filter :school
   limit_length = lambda do |str|
     if str.length > 30
       str[0..30] + "..."
