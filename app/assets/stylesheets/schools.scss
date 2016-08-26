@@ -1,14 +1,5 @@
-
- .container-school {
-   background-color: rgb(216, 216, 216);
-   margin-top: 10px;
-   margin-bottom: 10px;
-   .school-feedback {
-     text-align: right;
-   }
-
-   .school-details {
-     text-overflow: ellipsis;
-     overflow: hidden;
-   }
+.reviews-header {
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
 }

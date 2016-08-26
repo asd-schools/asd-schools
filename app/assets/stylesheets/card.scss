@@ -1,0 +1,15 @@
+.card {
+  max-width: 800px;
+  margin: auto;
+  background-color: white;
+  box-shadow: 2px 2px 1px #888888;
+  margin-top: 2em;
+  margin-bottom: 2em;
+
+  .card-container {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    line-height: 2em;
+  }
+}

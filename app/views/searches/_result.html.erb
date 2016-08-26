@@ -1,39 +1,38 @@
-<div class="search-result">
-  <div class="container">
-    <a
-      href="<%= school_url school %>"
-      class="school-link"
-    >
-      <span class="name"><%= school.name %></span>
 
-      <span class="reviews">
-        <% if show_reviews && school.reviews.any? %>
-        <%= school.reviews.count %> reviews
-        <% else %>
-          Review this school
-        <% end %>
-      </span>
-    </a>
+<%= render(layout: 'layouts/card') do %>
+  <a
+    href="<%= school_url school %>"
+    class="school-link"
+  >
+    <span class="name"><%= school.name %></span>
 
-    <!-- TODO: address should be a link to an address (gmaps or something) -->
-    <span class="address">
-      <span class="street">
-        <%= school.address.titleize %>
-      </span>
-      <span class="suburb">
-        <%= school.suburb.titleize %>
-      </span>
-      <span class="post_code">
-        <%= school.post_code %>
-      </span>
-      <span class="state">
-        <%= school.state %>
-      </span>
+    <span class="reviews">
+      <% if show_reviews && school.reviews.any? %>
+      <%= school.reviews.count %> reviews
+      <% else %>
+        Review this school
+      <% end %>
     </span>
-    <!-- TODO: Get phone numbers for the school -->
+  </a>
 
-    <span class="total_enrollments"><%= school.total_enrollments%> students</span>
+  <!-- TODO: address should be a link to an address (gmaps or something) -->
+  <span class="address">
+    <span class="street">
+      <%= school.address.titleize %>
+    </span>
+    <span class="suburb">
+      <%= school.suburb.titleize %>
+    </span>
+    <span class="post_code">
+      <%= school.post_code %>
+    </span>
+    <span class="state">
+      <%= school.state %>
+    </span>
+  </span>
+  <!-- TODO: Get phone numbers for the school -->
 
-    <%= link_to school.url, school.url, class: "school_website" %>
-    </div>
-</div>
+  <span class="total_enrollments"><%= school.total_enrollments%> students</span>
+
+  <%= link_to school.url, school.url, class: "school_website" %>
+<% end %>

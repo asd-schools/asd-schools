@@ -1,7 +1,9 @@
 <%= render partial: "layouts/header" %>
 <%= render partial: "searches/result", locals: {school: @school, show_reviews: false} %>
 
-<h2>Reviews</h2>
+<%= render(layout: 'layouts/card') do %>
+  <h2 class="reviews-header">Reviews</h2>
+<% end %>
 
 <% if @school.reviews.published.recent.any? %>
   <!--
@@ -11,19 +13,19 @@
   <a href="#leave-a-review">Review this school</a>
 <% end %>
 
-<ul>
-  <% @school.reviews.published.recent.each do |review| %>
-    <li class="review">
-      <%= review.review_type %><br/>
-      My child is: <%= review.child_characteristics.join(", ") %><br/>
-      Good: <%= review.pros %> <br/>
-      Bad: <%= review.cons %> <br/>
-      Ugly: <%= review.comments %> <br/>
-      When: <%= review.created_at %> <br/>
-    </li>
+<% @school.reviews.published.recent.each do |review| %>
+  <% render partial: 'layouts/card' do %>
+    <%= review.review_type %><br/>
+    My child is: <%= review.child_characteristics.join(", ") %><br/>
+    Good: <%= review.pros %> <br/>
+    Bad: <%= review.cons %> <br/>
+    Ugly: <%= review.comments %> <br/>
+    When: <%= review.created_at %> <br/>
   <% end %>
-</ul>
+<% end %>
 
-<div id="leave-a-review">
-  <%= render partial: "reviews/form", locals: {school: @school, review: Review.new} %>
-</div>
+<%= render(layout: 'layouts/card') do %>
+  <div id="leave-a-review">
+    <%= render partial: "reviews/form", locals: {school: @school, review: Review.new} %>
+  </div>
+<% end %>
