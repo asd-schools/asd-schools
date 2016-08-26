@@ -12,6 +12,7 @@ ActiveAdmin.register School do
     :state,
     :suburb,
     :url,
-    :year_range
+    :year_range,
+    :autism_characteristics
 
 end

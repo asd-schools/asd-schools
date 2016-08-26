@@ -3,7 +3,7 @@ class Search
   include ActiveModel::Validations
 
   Sectors = ['Sector', 'Government', 'Catholic', 'Independent']
-  AutismClassifications = ['Autism Classification']
+  AutismClassifications = ['Autism Classification', 'Autism Only', 'Autism Inclusive']
   SchoolTypes = ['Type', 'Primary', 'Secondary', 'Special', 'Combined']
 
   attr_accessor(
@@ -21,6 +21,9 @@ class Search
     filter = School
     if school_type != SchoolTypes.first
       filter = filter.where(school_type: school_type)
+    end
+    if autism_classification != AutismClassifications.first
+      filter = filter.where(autism_characteristics: autism_classification)
     end
     if sector != Sectors.first
       # S/G/I are the letters used in the DB to indicate school sector
