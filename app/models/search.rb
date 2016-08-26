@@ -3,7 +3,7 @@ class Search
   include ActiveModel::Validations
 
   Sectors = ['Sector', 'Government', 'Catholic', 'Independent']
-  AutismClassifications = ['Autism Classification', 'Autism Only', 'Autism Inclusive']
+  AutismClassifications = ['Autism Classification', 'Autism Only', 'Autism Inclusive', 'Specialist']
   SchoolTypes = ['Type', 'Primary', 'Secondary', 'Special', 'Combined']
 
   attr_accessor(
