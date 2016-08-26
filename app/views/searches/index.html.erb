@@ -2,5 +2,5 @@
 <%= render partial: "form", locals: {search: @search} %>
 
 <% @schools.map do |school|  %>
-<%= render partial: "result", locals: {school: school} %>
+  <%= render partial: "result", locals: {school: school, show_reviews: true} %>
 <% end %>

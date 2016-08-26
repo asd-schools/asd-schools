@@ -7,7 +7,7 @@
       <span class="name"><%= school.name %></span>
 
       <span class="reviews">
-        <% if school.reviews.any? %>
+        <% if show_reviews && school.reviews.any? %>
         <%= school.reviews.count %> reviews
         <% else %>
           Review this school

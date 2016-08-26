@@ -1,22 +1,29 @@
-<h1>
-  <%= @school.name %>
-</h1>
-<%= @school.display_address %>
-<br />
-<%= link_to @school.url, @school.url %>
-<br />
+<%= render partial: "layouts/header" %>
+<%= render partial: "searches/result", locals: {school: @school, show_reviews: false} %>
 
 <h2>Reviews</h2>
-<%= link_to "Help other parents by adding your review", new_school_review_url(@school) %>
-<ul>
-<% @school.reviews.published.recent.each do |review| %>
-  <li class="review">
-    <%= review.review_type %><br/>
-    My child is: <%= review.child_characteristics.join(", ") %><br/>
-    Good: <%= review.pros %> <br/>
-    Bad: <%= review.cons %> <br/>
-    Ugly: <%= review.comments %> <br/>
-    When: <%= review.created_at %> <br/>
-  </li>
+
+<% if @school.reviews.published.recent.any? %>
+  <!--
+    Link to the form at the end of the
+    page if there are reviews to skip past
+  -->
+  <a href="#leave-a-review">Review this school</a>
 <% end %>
+
+<ul>
+  <% @school.reviews.published.recent.each do |review| %>
+    <li class="review">
+      <%= review.review_type %><br/>
+      My child is: <%= review.child_characteristics.join(", ") %><br/>
+      Good: <%= review.pros %> <br/>
+      Bad: <%= review.cons %> <br/>
+      Ugly: <%= review.comments %> <br/>
+      When: <%= review.created_at %> <br/>
+    </li>
+  <% end %>
 </ul>
+
+<div id="leave-a-review">
+  <%= render partial: "reviews/form", locals: {school: @school, review: Review.new} %>
+</div>
