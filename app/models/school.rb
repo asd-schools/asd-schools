@@ -13,12 +13,14 @@ class School < ApplicationRecord
     -> { published.recent },
     class_name: "Review"
 
+  SECTORS = {
+    "G" => "Government school",
+    "C" => "Catholic school",
+    "I" => "Independant school"
+  }
+
   def display_sector
-    {
-      "G" => "Government school",
-      "C" => "Catholic school",
-      "I" => "Independant school"
-    }[sector]
+    SECTORS[sector]
   end
   def display_address
     [

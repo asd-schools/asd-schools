@@ -13,6 +13,7 @@ ActiveAdmin.register School do
     :suburb,
     :url,
     :year_range,
+    :sector,
     :autism_characteristics
 
   preserve_default_filters!
@@ -31,11 +32,20 @@ ActiveAdmin.register School do
       f.input :geo_supplier
       f.input :name
       f.input :post_code
-      f.input :school_type
       f.input :state
       f.input :suburb
       f.input :url
       f.input :year_range
+      f.input :school_type,
+        as: :select,
+        collection: Search::SchoolTypes,
+        include_blank: false
+
+      f.input :sector,
+        as: :select,
+        collection: School::SECTORS.invert,
+        include_blank: false
+
       f.input :autism_characteristics,
         as: :select,
         collection: Search::AutismClassifications,
