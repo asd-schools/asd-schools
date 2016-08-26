@@ -17,6 +17,9 @@ header {
       padding-right: 1em;
     }
 
+    a:first-child {
+      margin-right: auto;
+    }
     a:last-child {
       background-color: white;
       font-weight: bold;
@@ -24,6 +27,7 @@ header {
   }
 
   .logo {
+    display: block;
     max-width: 400px;
     margin: auto;
     > img {
