@@ -10,11 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160825015559) do
+ActiveRecord::Schema.define(version: 20160826013737) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "postgis"
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -58,15 +57,8 @@ ActiveRecord::Schema.define(version: 20160825015559) do
     t.string  "url",                                          null: false
     t.point   "location",                                     null: false
     t.string  "geo_supplier",                                 null: false
-    t.string  "autism_characterstics",           default: [], null: false, array: true
     t.string  "sector",                                       null: false
-  end
-
-  create_table "spatial_ref_sys", primary_key: "srid", id: :integer, force: :cascade do |t|
-    t.string  "auth_name", limit: 256
-    t.integer "auth_srid"
-    t.string  "srtext",    limit: 2048
-    t.string  "proj4text", limit: 2048
+    t.string  "autism_characteristics",          default: "", null: false
   end
 
 end
