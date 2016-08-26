@@ -25,6 +25,7 @@
 }
 
 .search-form-container {
+  position: relative;
   background-color: $brand-color;
   width: 100%;
 }
@@ -32,13 +33,13 @@
 #search-form {
   max-width: 800px;
   margin: auto;
+  padding: 1em;
 
   label {
     @include sr-only;
   }
   > fieldset {
     display: inline-block;
-    max-width: 650px;
     width: 100%;
     padding-bottom: 1em;
 
@@ -76,7 +77,8 @@
       justify-content: space-between;
       flex-wrap: wrap;
       > * {
-        width: 32%;
+        width: 100%;        
+        margin-bottom: .2em;
       }
       select {
         width: 100%;
@@ -106,17 +108,59 @@
     border-radius: 2px;
     padding:0;
   }
+  @media (min-width: 500px ){
+    #search_school_type_input {
+      width: 28%
+    }
+    #search_autism_classification_input {
+      width: 40%
+    }
+    #search_sector_input {
+      width: 30%
+
+    }
+  }
 
   #search_submit_action {
     list-style-type: none;
-    display: inline-block;
     vertical-align: top;
-    max-width: 140px;
     width: 100%;
-    input[type="submit"] {
-      width: 100%;
-      padding-top: 0;
-      padding-bottom: 0;
+    @media (min-width: 500px ){
+      text-align: right;
     }
+    input[type="submit"] {
+      text-transform: uppercase;
+      color: #fff;
+      background-color: #444;
+      width: 100%;
+      @media (min-width: 500px ){
+        max-width: 200px;
+        display: inline-block;        
+      }
+    }
+  }
+}
+.expand-button{
+  display: none;
+}
+
+.search-collapsed {
+  .form-group {
+    height:65px;
+    overflow: hidden;
+  }
+  .expand-button{
+    display: block;
+    height: 50px;
+    background: linear-gradient(to top, rgba(250, 150, 46, 1) 20%, rgba(250, 150, 46, 0) 100%);
+    width: 100%;
+    z-index: 1000;
+    position: absolute;
+    text-align: center;
+    color: #fff;
+    font-size: 1em;
+    text-transform: uppercase;
+    top: 15px;
+    border: none;
   }
 }
