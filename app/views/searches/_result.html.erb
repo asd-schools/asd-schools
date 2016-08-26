@@ -7,10 +7,12 @@
     <span class="name"><%= school.name %></span>
 
     <span class="reviews">
-      <% if show_reviews && school.published_reviews.any? %>
-      <%= school.published_reviews.count %> reviews
-      <% else %>
-        Review this school
+      <% if show_reviews %>
+        <% if school.published_reviews.any? %>
+        <%= school.published_reviews.count %> reviews
+        <% else %>
+          Review this school
+        <% end %>
       <% end %>
     </span>
   </a>

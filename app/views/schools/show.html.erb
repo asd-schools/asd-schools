@@ -3,24 +3,32 @@
 
 <%= render(layout: 'layouts/card') do %>
   <h2 class="reviews-header">Reviews</h2>
+
+  <% if @school.published_reviews.any? %>
+    <!--
+      Link to the form at the end of the
+      page if there are reviews to skip past
+    -->
+    <a
+      class="reviews-link"
+      href="#leave-a-review"
+    >
+      Review this school
+    </a>
+  <% end %>
 <% end %>
 
-<% if @school.published_reviews.any? %>
-  <!--
-    Link to the form at the end of the
-    page if there are reviews to skip past
-  -->
-  <a href="#leave-a-review">Review this school</a>
-<% end %>
 
 <% @school.published_reviews.each do |review| %>
-  <% render partial: 'layouts/card' do %>
-    <%= review.review_type %><br/>
-    My child is: <%= review.child_characteristics.join(", ") %><br/>
+  <%= render layout: 'layouts/card' do %>
     Good: <%= review.pros %> <br/>
     Bad: <%= review.cons %> <br/>
-    Ugly: <%= review.comments %> <br/>
-    When: <%= review.created_at %> <br/>
+    Comments: <%= review.comments %> <br/>
+    Source: <%= review.review_type %><br/>
+    <% if review.child_characteristics.reject(&:blank?).any? %>
+    My kid <%= review.child_characteristics.reject(&:blank?).join(", ").downcase %><br/>
+    <% end %>
+    When: <%= distance_of_time_in_words_to_now review.created_at %> ago<br/>
   <% end %>
 <% end %>
 
