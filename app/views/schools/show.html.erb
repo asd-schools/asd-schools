@@ -5,7 +5,7 @@
   <h2 class="reviews-header">Reviews</h2>
 <% end %>
 
-<% if @school.reviews.published.recent.any? %>
+<% if @school.published_reviews.any? %>
   <!--
     Link to the form at the end of the
     page if there are reviews to skip past
@@ -13,7 +13,7 @@
   <a href="#leave-a-review">Review this school</a>
 <% end %>
 
-<% @school.reviews.published.recent.each do |review| %>
+<% @school.published_reviews.each do |review| %>
   <% render partial: 'layouts/card' do %>
     <%= review.review_type %><br/>
     My child is: <%= review.child_characteristics.join(", ") %><br/>

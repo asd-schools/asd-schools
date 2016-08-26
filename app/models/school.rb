@@ -9,6 +9,9 @@ class School < ApplicationRecord
   }
 
   has_many :reviews
+  has_many :published_reviews,
+    -> { published.recent },
+    class_name: "Review"
 
   def display_sector
     {
