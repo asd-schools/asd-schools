@@ -97,3 +97,15 @@ function GistSuburbTemplate(suburb) {
 
   return result;
 }
+
+$(function onLoad() {
+  if ($("#search-form")[0]) {
+    SuburbAutocomplete(
+      $("#search-form"),
+      $("#suburbAutocomplete"),
+      $("#autocompleteResults"),
+      ConsumerSuggestAutocomplete,
+      ConsumerSuggestTemplate
+    );
+  }
+})
