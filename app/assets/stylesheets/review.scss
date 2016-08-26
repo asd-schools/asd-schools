@@ -19,4 +19,11 @@
     height: 60px;
 
   }
+  input[type="submit"] {
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #444;
+    border: none;
+    padding: .3em 1em;
+  }  
 }

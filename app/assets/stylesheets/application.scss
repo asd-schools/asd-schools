@@ -49,3 +49,14 @@ body {
   color: #222;
 }
 
+.btn{
+    text-transform: uppercase;
+    color: #fff;
+    background-color: $brand-color;
+    border: none;
+    padding: .2em .6em;
+    display: inline-block;
+    text-decoration: none!important;
+    font-size: .8em;
+
+}
