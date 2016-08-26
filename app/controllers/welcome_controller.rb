@@ -3,4 +3,9 @@ class WelcomeController < ApplicationController
     @schools = School.limit(10)
     @search = Search.new(params[:search])
   end
+
+  def about
+  end
+  def privacy
+  end
 end
