@@ -90,6 +90,14 @@
     font-size: 1em;
     background-color: white;
     border: 1px solid #666;
+    &.invalid {
+      border: 1px solid red;
+      background-color: pink;
+    }
+    &:valid {
+      background-color: white;
+      border: 1px solid #666;
+    }
   }
 
   input[type="search"] {

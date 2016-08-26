@@ -17,6 +17,7 @@ class Search
   )
 
   def results
+    return School.where('false') if !valid?
     filter = School
     if school_type != SchoolTypes.first
       filter = filter.where(school_type: school_type)
@@ -45,6 +46,7 @@ class Search
   end
 
   validates :lat, :lng, presence: true
+  validates :suburb, presence: true
   validates :sector, inclusion: Sectors
   validates :autism_classification, inclusion: AutismClassifications
   validates :school_type, inclusion: SchoolTypes

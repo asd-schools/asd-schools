@@ -19,8 +19,10 @@
               id: "suburbAutocomplete",
               placeholder: " Search by suburb or postcode",
               autocomplete: "off",
-              class: "form-control"
+              required: true,
+              class: search.errors[:suburb].any? ? 'invalid' : 'valid'
             %>
+
             <div id="autocompleteResults"></div>
 
             <div class="select-row">
