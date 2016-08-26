@@ -15,4 +15,29 @@ ActiveAdmin.register School do
     :year_range,
     :autism_characteristics
 
+  form do |f|
+    f.semantic_errors
+    f.inputs do
+      f.input :female_enrollments
+      f.input :fulltime_equivalent_enrollments
+      f.input :male_enrollments
+      f.input :total_enrollments
+      f.input :location
+      f.input :address
+      f.input :geo_supplier
+      f.input :name
+      f.input :post_code
+      f.input :school_type
+      f.input :state
+      f.input :suburb
+      f.input :url
+      f.input :year_range
+      f.input :autism_characteristics,
+        as: :select,
+        collection: Search::AutismClassifications,
+        include_blank: false
+    end
+
+    f.actions
+  end
 end
