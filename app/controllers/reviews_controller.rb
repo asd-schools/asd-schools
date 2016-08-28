@@ -6,9 +6,10 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    @review.published = true
     @review.school = school
+    @review.published = school.publish_new_reviews_by_default
     if @review.save
+      flash[:message] = "Reviews for this school are not shown until approved by a moderator." unless @review.published
       redirect_to school_url(school)
     else
       render :new

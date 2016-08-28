@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160826013737) do
+ActiveRecord::Schema.define(version: 20160828095456) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "postgis"
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -43,22 +44,30 @@ ActiveRecord::Schema.define(version: 20160826013737) do
   end
 
   create_table "schools", force: :cascade do |t|
-    t.string  "name",                                         null: false
-    t.string  "suburb",                                       null: false
-    t.string  "address",                                      null: false
-    t.string  "post_code",                                    null: false
-    t.string  "state",                                        null: false
-    t.string  "school_type",                                  null: false
-    t.string  "year_range",                                   null: false
-    t.integer "total_enrollments",                            null: false
-    t.integer "fulltime_equivalent_enrollments",              null: false
-    t.integer "female_enrollments",                           null: false
-    t.integer "male_enrollments",                             null: false
-    t.string  "url",                                          null: false
-    t.point   "location",                                     null: false
-    t.string  "geo_supplier",                                 null: false
-    t.string  "sector",                                       null: false
-    t.string  "autism_characteristics",          default: "", null: false
+    t.string  "name",                                           null: false
+    t.string  "suburb",                                         null: false
+    t.string  "address",                                        null: false
+    t.string  "post_code",                                      null: false
+    t.string  "state",                                          null: false
+    t.string  "school_type",                                    null: false
+    t.string  "year_range",                                     null: false
+    t.integer "total_enrollments",                              null: false
+    t.integer "fulltime_equivalent_enrollments",                null: false
+    t.integer "female_enrollments",                             null: false
+    t.integer "male_enrollments",                               null: false
+    t.string  "url",                                            null: false
+    t.point   "location",                                       null: false
+    t.string  "geo_supplier",                                   null: false
+    t.string  "sector",                                         null: false
+    t.string  "autism_characteristics",          default: "",   null: false
+    t.boolean "publish_new_reviews_by_default",  default: true, null: false
+  end
+
+  create_table "spatial_ref_sys", primary_key: "srid", id: :integer, force: :cascade do |t|
+    t.string  "auth_name", limit: 256
+    t.integer "auth_srid"
+    t.string  "srtext",    limit: 2048
+    t.string  "proj4text", limit: 2048
   end
 
 end

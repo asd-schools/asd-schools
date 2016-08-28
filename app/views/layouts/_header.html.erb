@@ -10,4 +10,10 @@
   <a href="/" class="logo">
     <img src="<%= asset_url "logo.png" %>" />
   </a>
+  <% if flash[:message] %>
+    <div class="appmessage">
+      <%= flash[:message] %>
+    </div>
+  <% end %>
+
 </header>

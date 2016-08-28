@@ -14,7 +14,8 @@ ActiveAdmin.register School do
     :url,
     :year_range,
     :sector,
-    :autism_characteristics
+    :autism_characteristics,
+    :publish_new_reviews_by_default
 
   preserve_default_filters!
   remove_filter :reviews
@@ -50,6 +51,7 @@ ActiveAdmin.register School do
         as: :select,
         collection: Search::AutismClassifications,
         include_blank: false
+      f.input :publish_new_reviews_by_default
     end
 
     f.actions
