@@ -49,6 +49,11 @@
         as: :text,
         label: "Any other comments?"
     %>
+
+    <%=
+      f.input :contact,
+        label: "Contact details (optional; only visible to site admins)"
+    %>
   <% end %>
   <%= f.actions do %>
     <%= f.action :submit, label: "Save my review" %>

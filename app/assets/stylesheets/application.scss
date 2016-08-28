@@ -34,6 +34,10 @@ $brand-color: rgb(250, 150, 46);
 @import "welcome";
 @import "card";
 
+.inline-errors {
+  color: red;
+}
+
 body {
   background-color: #f4f4f4;
   color: #0a0a0a;

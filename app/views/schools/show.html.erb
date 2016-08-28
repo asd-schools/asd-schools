@@ -34,6 +34,6 @@
 
 <%= render(layout: 'layouts/card') do %>
   <div id="leave-a-review">
-    <%= render partial: "reviews/form", locals: {school: @school, review: Review.new} %>
+    <%= render partial: "reviews/form", locals: {school: @school, review: @review} %>
   </div>
 <% end %>
