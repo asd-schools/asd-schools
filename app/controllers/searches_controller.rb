@@ -1,7 +1,17 @@
 class SearchesController < ApplicationController
   def index
-    @search = Search.new(search_params)
-    @schools = @search.results
+    if params[:autocomplete]
+      # Autocomplete search
+      if params[:autocomplete].length > 3
+        render json: School.ransack(name_cont: params[:autocomplete]).result
+      else
+        render json: []
+      end
+    else
+      # Form search
+      @search = Search.new(search_params)
+      @schools = @search.results
+    end
   end
 
   def create
