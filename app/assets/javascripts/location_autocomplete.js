@@ -16,23 +16,27 @@ function SuburbAutocomplete(
 ) {
   datasource = searchConfig.Autocomplete;
   onSelect = searchConfig.OnSelect;
-  template = searchConfig.Template;
+  template = searchConfig.ToText;
+  template = searchConfig.ToUrl;
+  template = function(r) {
+    var result = document.createElement('a');
+    $(result).attr('href', searchConfig.ToUrl(r));
+    result.innerText = searchConfig.ToText(r);
+    return result;
+  }
   var f = $(form)
   var ul = $(output)
 
-  var defaultAnswer = null;
-
-  f.submit(function finishAutocomplete(e) {
-    if (defaultAnswer) {
-      onSelect(defaultAnswer, f);
+  $(input).on('keypress', function onKeyPress(e) {
+    if (e.keyCode === 13) {
+      output.children()[0] && output.children()[0].click()
       e.preventDefault();
     }
-  })
+  });
 
   $(input).on('input', function onSuburbChange(inputEvent) {
     datasource(inputEvent.target.value, function setContent(content) {
       ul.empty();
-      defaultAnswer = content[0];
 
       content.slice(0, 10).forEach(function(record) {
         var node = template(record);
@@ -43,10 +47,10 @@ function SuburbAutocomplete(
             if (clickEvent.button === 0) {
               clickEvent.preventDefault();
             }
+            $(input).val(searchConfig.ToText(record))
             onSelect(record, f);
 
             ul.empty();
-            defaultAnswer = null;
           })
         }
 
@@ -68,11 +72,19 @@ function SchoolAutocomplete(input, cb) {
   });
 }
 
-function SchoolTemplate(suggestion) {
-  var result = document.createElement('a')
-  $(result).attr('href', "/schools/" + encodeURIComponent(suggestion.id));
-  result.innerText = suggestion.name + " (" + suggestion.suburb + ", " + suggestion.school_type + ")";
-  return result;
+function SchoolToText(suggestion) {
+  return suggestion.name + " (" + suggestion.suburb + ", " + suggestion.school_type + ")";
+}
+function SchoolToUrl(suggestion) {
+  return "/schools/" + encodeURIComponent(suggestion.id)
+}
+
+function ConsumerSuggestToText(suggestion) {
+  return suggestion.display.text;
+}
+
+function ConsumerSuggestToUrl(suggestion) {
+  return "/searches/?search[atlas_id]=" + encodeURIComponent(suggestion.id.slice(0, 36))
 }
 
 function ConsumerSuggestAutocomplete(input, cb) {
@@ -87,61 +99,29 @@ function ConsumerSuggestAutocomplete(input, cb) {
   });
 }
 
-function ConsumerSuggestTemplate(suggestion) {
-  var result = document.createElement('a')
-  $(result).attr('href', "/searches/?search[atlas_id]=" + encodeURIComponent(suggestion.id.slice(0, 36)));
-  result.innerText = suggestion.display.text;
-  return result;
-}
-
 function ConsumerSuggestOnSelect(record, f) {
-    if (record.id) {
-      f.find('[name="search[atlas_id]"]').val(record.id.slice(0, 36))
-    }
-    if (record.point) {
-      f.find('[name="search[lat]"]').val(record.point.x)
-      f.find('[name="search[lng]"]').val(record.point.y)
-    }
-    $(input).val(" " + (record.name || record.display.text))
+  if (record.id) {
+    f.find('[name="search[atlas_id]"]').val(record.id.slice(0, 36))
   }
-
-function GistSuburbAutocomplete(input, cb) {
-  $.getJSON(
-    "/suburbs?q="+encodeURIComponent(input)
-  ).then(cb);
-}
-
-function GistSuburbTemplate(suburb) {
-  var result = document.createElement('a')
-  $(result).attr(
-    'href',
-    "/searches/?search[lat]=" + encodeURIComponent(suburb.point.x) +
-    "&search[lng]=" + encodeURIComponent(suburb.point.y)
-  );
-  result.innerHTML = "" +
-    "<span class='suburbname'>" + suburb.name + "</span> " +
-    "<span class='postcode'>" + suburb.postcode + "</span> " +
-    "<span class='state'>" + suburb.state + "</span> ";
-
-  return result;
+  if (record.point) {
+    f.find('[name="search[lat]"]').val(record.point.x)
+    f.find('[name="search[lng]"]').val(record.point.y)
+  }
+  f.submit()
 }
 
 School = {
   Autocomplete: SchoolAutocomplete,
   OnSelect: function(e) {window.location = "/schools/"+e.id},
-  Template: SchoolTemplate
+  ToText: SchoolToText,
+  ToUrl: SchoolToUrl
 };
 
 ConsumerSuggest = {
   Autocomplete: ConsumerSuggestAutocomplete,
   OnSelect: ConsumerSuggestOnSelect,
-  Template: ConsumerSuggestTemplate
-};
-
-GistOfSuburbs = {
-  Autocomplete: GistSuburbAutocomplete,
-  OnSelect: ConsumerSuggestOnSelect, // yes, it work(ed)
-  Template: GistSuburbTemplate
+  ToText: ConsumerSuggestToText,
+  ToUrl: ConsumerSuggestToUrl
 };
 
 function combineSearches(first, second) {
@@ -169,11 +149,18 @@ function combineSearches(first, second) {
         second.OnSelect(record, form)
       }
     },
-    Template: function(record) {
+    ToText: function(record) {
       if (record.__combiner_source == first) {
-        return first.Template(record)
+        return first.ToText(record)
       } else {
-        return second.Template(record)
+        return second.ToText(record)
+      }
+    },
+    ToUrl: function(record) {
+      if (record.__combiner_source == first) {
+        return first.ToUrl(record)
+      } else {
+        return second.ToUrl(record)
       }
     }
   }
